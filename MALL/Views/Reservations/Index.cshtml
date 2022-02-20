@@ -1,0 +1,54 @@
+﻿@model IEnumerable<MALL.Models.Reservation>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+}
+
+<img style="height:2px;width:100%" src="../images/l.jpg" alt="First slide">
+
+
+<h2 class="text-primary" style="text-align:center">
+ Reservations</h2>
+
+<img style="height:2px;width:100%" src="../images/l.jpg" alt="First slide">
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ReservationName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Reservationdate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReservationClient)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReservationName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reservationdate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReservationClient)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ReservationId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ReservationId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ReservationId })
+            </td>
+        </tr>
+    }
+
+</table>

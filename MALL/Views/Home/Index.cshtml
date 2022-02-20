@@ -1,0 +1,468 @@
+﻿@model MALL.Models.comment
+
+@{
+    if (Session["RegId"] == null)
+    {
+        Layout = "~/Views/Shared/_layout.cshtml";
+
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Userlayout.cshtml";
+
+    }
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<style>
+    body {
+        background: #eee
+    }
+
+    .date {
+        font-size: 11px
+    }
+
+    .comment-text {
+        font-size: 12px
+    }
+
+    .fs-12 {
+        font-size: 12px
+    }
+
+    .shadow-none {
+        box-shadow: none
+    }
+
+    .name {
+        color: #007bff
+    }
+
+    .cursor:hover {
+        color: blue
+    }
+
+    .cursor {
+        cursor: pointer
+    }
+
+    .main-text {
+        position: absolute;
+        top: 100px;
+        width: 100%;
+        color: #FFF;
+    }
+
+    .carousel-btns {
+        margin-top: 2em;
+    }
+
+        .carousel-btns .btn {
+            width: 150px;
+        }
+
+    .carousel-inner .imgOverlay {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(6, 28, 38, 0.5);
+    }
+
+    .carousel-inner img {
+        width: 100%;
+    }
+
+    /*CONTROL*/
+    .carousel-control {
+        width: auto;
+    }
+
+        .carousel-control .icon-prev,
+        .carousel-control .icon-next,
+        .carousel-control .fa-chevron-left,
+        .carousel-control .fa-chevron-right {
+            position: absolute;
+            top: 47%;
+            right: 0;
+            z-index: 5;
+            display: inline-block;
+            background-color: #000;
+            width: 38px;
+            height: 38px;
+            line-height: 40px;
+            font-size: 14px;
+        }
+
+        .carousel-control .icon-prev,
+        .carousel-control .fa-chevron-left {
+            left: 0;
+        }
+
+    .carousel-indicators li {
+        width: 12px;
+        height: 12px;
+        margin: 0 1px;
+        border: 2px solid #fff;
+        opacity: .8;
+    }
+
+    .carousel-indicators .active {
+        background-color: #28ace2;
+        border-color: #28ace2;
+    }
+
+    .carousel-control .icon-prev, .carousel-control .fa-chevron-left,
+    .carousel-control .icon-right, .carousel-control .fa-chevron-right {
+        border-radius: 50px;
+    }
+
+    .carousel-control .icon-prev, .carousel-control .fa-chevron-left {
+        left: 30px;
+    }
+
+    .carousel-control .icon-right, .carousel-control .fa-chevron-right {
+        right: 30px;
+    }
+
+
+
+
+    .search {
+        background-color: #fff;
+        padding: 4PX 7px 2px 3px;
+        border-radius: 5px
+    }
+
+    .search-1 {
+        position: relative;
+        width: 100%
+    }
+
+        .search-1 input {
+            height: 45px;
+            border: none;
+            width: 100%;
+            padding-left: 34px;
+            padding-right: 10px;
+            border-right: 2px solid #eee
+        }
+
+            .search-1 input:focus {
+                border-color: none;
+                box-shadow: none;
+                outline: none
+            }
+
+        .search-1 i {
+            position: absolute;
+            top: 12px;
+            left: 5px;
+            font-size: 24px;
+            color: #eee
+        }
+
+    ::placeholder {
+        color: darkgoldenrod;
+        opacity: 1
+    }
+
+    .search-2 {
+        position: relative;
+        width: 100%
+    }
+
+        .search-2 input {
+            height: 45px;
+            border: none;
+            width: 100%;
+            padding-left: 18px;
+            padding-right: 100px
+        }
+
+            .search-2 input:focus {
+                border-color: none;
+                box-shadow: none;
+                outline: none
+            }
+
+        .search-2 i {
+            position: absolute;
+            top: 12px;
+            left: -10px;
+            font-size: 24px;
+            color: #eee
+        }
+
+        .search-2 button {
+            position: absolute;
+            right: 1px;
+            top: 0px;
+            border: none;
+            height: 45px;
+            background-color: darkgoldenrod;
+            color: #fff;
+            width: 90px;
+            border-radius: 4px
+        }
+
+        .search-2 i {
+            left: 3px
+        }
+
+        .search-2 input {
+            padding-left: 34px
+        }
+
+        .search-2 button {
+            height: 37px;
+            top: 5px
+        }
+</style>
+
+
+
+<div class="olContent f1 ">
+    <h2 style="color:black ;text-align:center; ">
+        @ViewData["message"]
+
+    </h2>
+</div>
+
+<div id="themeSlider" class="carousel slide  " data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#themeSlider" data-slide-to="0" class="active"></li>
+        <li data-target="#themeSlider" data-slide-to="1"></li>
+        <li data-target="#themeSlider" data-slide-to="2"></li>
+    </ol>
+
+    <div class="carousel-inner">
+        <div class="item active">
+            <div class="imgOverlay"></div>
+            <img style="height:320px;width:100%" src="../images/ccpromo3.jpg" alt="First slide">
+            <div class="carousel-caption">
+            </div>
+        </div>
+        <div class="item">
+            <div class="imgOverlay"></div>
+            <img style="height:320px;width:100%" src="../images/ccpromo2.jpg" alt="Second slide">
+            <div class="carousel-caption">
+            </div>
+        </div>
+        <div class="item">
+            <div class="imgOverlay"></div>
+            <img style="height:320px;width:100%" src="../images/ccpromo1.jpg" alt="Third slide">
+            <div class="carousel-caption">
+            </div>
+        </div>
+    </div>
+
+    <a class="left carousel-control" href="#themeSlider" data-slide="prev">
+        <span class="fa fa-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#themeSlider" data-slide="next">
+        <span class="fa fa-chevron-right"></span>
+    </a>
+
+
+</div>
+
+
+
+
+
+<h2 class="text-primary" style="text-align:center">
+    Search Product/Category :
+</h2>
+
+<img style="height:1px;width:100%" src="../images/l.jpg" alt="First slide">
+
+
+
+
+<form method="post">
+
+    <div class="container">
+        <div class="search">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="search-1"> <i class='bx bx-search-alt'></i> <input type="text" placeholder="Products: Coat, Dress, Jean"> </div>
+                </div>
+                <div class="col-md-6">
+                    <div>
+                        <div class="search-2"> <i class='bx bxs-map'></i> <input type="text" placeholder="Category: Fashion ..."> <button>Search</button> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<img style="height:1px;width:100%" src="../images/l.jpg" alt="First slide">
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="page-header">
+            <h2 class="text-primary" style="text-align:center">
+                Brands <small>trends products</small>
+            </h2>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container" style="top: 50px; position: relative; left: -30px;  width: 100%; height: 100% ">
+    <div class="container">
+        <div class="row ">
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                    <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="../images/DAZY.jpg" data-holder-rendered="true">
+                    <div class="card-body">
+                        <p class="card-text">
+                            Dazy is a fashion label unlike any other. It focuses on the aspirations of promising young Asian women from around the world who love casual clothing.
+                            we make these women a top priority by offering them the stylish, comfortable and versatile looks they are looking for, as well as a community they can join.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                            </div>
+                            <small class="text-muted">9 mins</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                    <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="../images/MOTIF.jpg" data-holder-rendered="true">
+                    <div class="card-body">
+                        <p class="card-text">
+                            Quality. Affordable. Stylish. MOTF offers essential items made from high-end and durable fabrics, with a focus on quality and know-how.
+                            In addition, customers can enjoy high-quality clothing without having to pay a high price.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                            </div>
+                            <small class="text-muted">9 mins</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                    <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="../images/PULL&BEAR.jpg" data-holder-rendered="true">
+                    <div class="card-body">
+                        <p class="card-text">
+                            Founded in 1991 by the Inditex group, Pull&Bear has conquered Europe by establishing itself in the largest cities of the continent and today has more than 970 shops in 76 markets,in attractive locations at affordable prices.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                            </div>
+                            <small class="text-muted">9 mins</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                    <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="../images/KOTON.jpg" data-holder-rendered="true">
+                    <div class="card-body">
+                        <p class="card-text">Creative and innovative, customer-oriented and technology-driven, the Koton brand continues its policy of combining seasonal trends and original designs and selling them in attractive locations at affordable prices.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                            </div>
+                            <small class="text-muted">9 mins</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                    <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="../images/LACASA.jpg" data-holder-rendered="true">
+                    <div class="card-body">
+                        <p class="card-text">A harmonious decoration is played with small details. LA CASA understood this, with the delicacy of its objects, extremely fine and discreet! A new Moroccan brand of interior decoration and home accessories that gives desires elsewhere.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                            </div>
+                            <small class="text-muted">9 mins</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                    <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="../images/BERSHKA.jpg" data-holder-rendered="true">
+                    <div class="card-body">
+                        <p class="card-text">Bershka is an avant-garde brand whose management model is flexible and innovative, with a quality design that captures and responds quickly to market demands. Bershka’s target population is young people aged 13 to 25.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                            </div>
+                            <small class="text-muted">9 mins</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                    <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="../images/DIAMANTINE.jpg" data-holder-rendered="true">
+                    <div class="card-body">
+                        <p class="card-text">A leader in traditional, modernised ready-to-wear, with more than 100 stores worldwide, Diamantine is a 100% Moroccan franchise. Every year, the brand dresses Women, Men and Children with original, practical and affordable creations.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                            </div>
+                            <small class="text-muted">9 mins</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                    <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="../images/FLORMAR.jpg" data-holder-rendered="true">
+                    <div class="card-body">
+                        <p class="card-text">Good makeup is the result of a series of steps, starting with makeup of the complexion, eyes, lips and nail makeup. Flormar offers you a complete range of makeup: Eye Shadow for an immediate youth effect, powders to give a bright color to your eyes.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                            </div>
+                            <small class="text-muted">9 mins</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                    <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="../images/YAN&ONE.jpg" data-holder-rendered="true">
+                    <div class="card-body">
+                        <p class="card-text">Yan&One propose une gamme de produits : maquillage, soins, beauté, parfums, accessoires qui peuvent sublimer la beauté naturelle. C’est une offre qui s’adresse à toutes les femmes, quelle que soit leur couleur de peau, leur morphologie et leurs moyens.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                            </div>
+                            <small class="text-muted">9 mins</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<br />
+
+
+
+
+<br />
+<br />
+<br />
+<br />

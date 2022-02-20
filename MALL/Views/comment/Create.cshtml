@@ -1,0 +1,121 @@
+﻿@model MALL.Models.comment
+
+@{
+    Layout = "~/Views/Shared/_Userlayout.cshtml";
+}
+
+<style>
+    #login-div {
+        position: absolute;
+        left: 25%;
+        top: 30%;
+        border: 1px solid #ccc;
+        padding: 10px 10px 10px 10px;
+        margin-left: 100px;
+        background: #f7f7f7 none repeat scroll 0 0;
+        border: 1px solid #d4d4d4;
+        width: 600px;
+    }
+</style>
+<img style="height:2px;width:100%" src="../images/l.jpg" alt="First slide">
+
+
+<h2 class="text-primary" style="text-align:center">
+    Share your experience with us :
+</h2>
+
+<img style="height:2px;width:100%" src="../images/l.jpg" alt="First slide">
+
+
+@*@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="login-div">
+    <div class="form-horizontal">
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Comment1, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Comment1, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Comment1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</div>
+}*@
+<div class="login-div">
+
+    <div class="container justify-content-center" style="top: 50px; position: relative; left: -20px;  width: 20000px; height: 100% ">
+        <div class="d-flex justify-content-center row">
+            <div class="col-md-8">
+                <div class="d-flex flex-column  comment-section">
+                    <div class="bg-white p-2">
+                        <div class="d-flex flex-row user-info">
+                            <img class="rounded-circle" src="https://i.imgur.com/RpzrMR2.jpg" width="40">
+                            <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name">Marry Andrews</span><span class="date text-black-50">Shared publicly - Jan 2020</span></div>
+                        </div>
+
+                    </div>
+                    <div class="bg-white">
+                        <div class="d-flex flex-row fs-12">
+                            <div class="like p-2 cursor"><i class="fa fa-thumbs-o-up"></i><span class="ml-1">Like</span></div>
+                            <div class="like p-2 cursor"><i class="fa fa-commenting-o"></i><span class="ml-1">Comment</span></div>
+                            <div class="like p-2 cursor"><i class="fa fa-share"></i><span class="ml-1">Share</span></div>
+                        </div>
+                    </div>
+                    <div class="bg-light p-2">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-horizontal">
+                                <hr />
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Comment1, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Comment1, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Comment1, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Post comment" class="btn btn-default btn btn-primary btn-sm shadow-none" />
+                                    </div>
+                                </div>
+                            </div>}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>

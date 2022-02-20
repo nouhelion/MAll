@@ -1,0 +1,54 @@
+﻿@model MALL.Models.brand
+
+@{ Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+    ViewBag.Title = "Delete";
+}
+
+<img style="height:2px;width:100%" src="../images/l.jpg" alt="First slide">
+
+
+<h2 class="text-primary" style="text-align:center">
+ Delete a brand</h2>
+
+<img style="height:2px;width:100%" src="../images/l.jpg" alt="First slide">
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name_brand)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name_brand)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description_brand)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description_brand)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image_brand)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Image_brand)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

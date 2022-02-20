@@ -1,0 +1,67 @@
+﻿@model IEnumerable<MALL.Models.User>
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+}
+
+<img style="height:2px;width:100%" src="../images/l.jpg" alt="First slide">
+
+
+<h2 class="text-primary" style="text-align:center">
+    Users
+</h2>
+
+<img style="height:2px;width:100%" src="../images/l.jpg" alt="First slide">
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-hover">
+    <thead>
+
+        <tr scope="col">
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsAdmin)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tbody>
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Password)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsAdmin)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.RegId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.RegId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.RegId })
+                </td>
+            </tr>
+        </tbody>
+
+    }
+
+</table>

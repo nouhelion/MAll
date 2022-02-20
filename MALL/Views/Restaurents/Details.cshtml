@@ -1,0 +1,44 @@
+﻿@model MALL.Models.Restaurent
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Restaurent</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name_restaurant)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name_restaurant)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description_restaurant)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description_restaurant)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image_restaurant)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Image_restaurant)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_restaurant }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,66 @@
+﻿@model IEnumerable<MALL.Models.Restaurent>
+@{
+    if (Session["RegId"] == null)
+    {
+        Response.Redirect("~/User/Login");
+    }
+    Layout = "~/Views/Shared/_Userlayout.cshtml";
+
+
+
+}
+
+<h3></h3>
+<h1 class="h1-title">
+</h1>
+<p class="text-primary">
+</p>
+<div class="item active" style="width:1280px">
+    <div class="imgOverlay"></div>
+    <img style="height:320px;width:100%" src="../images/r.jpg" alt="First slide">
+    <div class="carousel-caption">
+    </div>
+</div>
+
+<img style="height:2px;width:100%" src="../images/l.jpg" alt="First slide">
+
+
+
+
+
+
+<h2 class="text-primary" style="text-align:center">
+    Restaurants
+</h2>
+
+<img style="height:2px;width:100%" src="../images/l.jpg" alt="First slide">
+
+<p class="text-muted">
+    Vous cherchez des bonnes adresses sur Rabat, pour un déjeuner entre collègues, un dîner en amoureux, un goûter avec les enfants ou tout simplement une petite pause café ?  N’allez pas plus loin. Que vous aimiez la cuisine portugaise, mexicaine, italienne, asiatique ou libanaise, fastfood ou food healthy… Les restaurants et les pauses gourmandes de Mega Mall vous attendent et vous assurent de passer un agréable moment en famille ou entre amis
+</p>
+
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+
+            <div class="card mb-4  fs-6" style="width:640px">
+                <h3 class="card-header text-primary">
+                    @Html.DisplayFor(modelItem => item.Name_restaurant)
+                </h3>
+
+                <img class="d-block user-select-none" height="500" fill="#dee2e6" src="@Html.DisplayFor(modelItem => item.Image_restaurant)" dy=".3em">
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        @Html.DisplayFor(modelItem => item.Description_restaurant)
+
+                    </li>
+                </ul>
+
+            </div>
+
+
+        }
+    </div>
+</div>

@@ -1,0 +1,67 @@
+﻿@model IEnumerable<MALL.Models.brand>
+@{
+    if (Session["RegId"] == null)
+    {
+        Response.Redirect("~/User/Login");
+    }
+    Layout = "~/Views/Shared/_Userlayout.cshtml";
+
+
+
+}
+
+
+<div class="item active" style="width:1280px">
+<div class="imgOverlay"></div>
+<img style="height:320px;width:100%" src="../images/ccpromo8f.jpg" alt="First slide">
+<div class="carousel-caption">
+</div>
+</div>
+
+<img style="height:2px;width:100%" src="../images/l.jpg" alt="First slide">
+
+
+<h2 class="text-primary" style="text-align:center">
+    Brands
+</h2>
+
+<img style="height:2px;width:100%" src="../images/l.jpg" alt="First slide">
+
+<p class="text-muted">
+
+    Quality. Affordable. Stylish. We offer essential items made from high-end and durable fabrics, with a focus on quality and know-how.
+    In addition, customers can enjoy high-quality clothing without having to pay a high price.
+</p>
+
+
+
+
+    <div class="container">
+        <div class="row ">
+
+            @foreach (var item in Model)
+            {
+
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="@Html.DisplayFor(modelItem => item.Image_brand)" data-holder-rendered="true">
+                        <h3 class="card-header text-primary">
+                            @Html.DisplayFor(modelItem => item.Name_brand)
+                        </h3>
+                        <div class="card-body">
+
+                            <p class="card-text">
+                                @Html.DisplayFor(modelItem => item.Description_brand)
+
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>}
+        </div>
+
+    </div>

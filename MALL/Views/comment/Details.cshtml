@@ -1,0 +1,45 @@
+﻿
+@model MALL.Models.comment
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>comment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comment1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comment1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sentiment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sentiment)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDC }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
